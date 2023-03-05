@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="MediatR" Version="12.0.1" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.3" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EmpManager.Core.Domain\EmpManager.Core.Domain.csproj" />
+    <ProjectReference Include="..\EmpManager.Core.Services.CQRS.Commands\EmpManager.Core.Services.CQRS.Commands.csproj" />
+    <ProjectReference Include="..\EmpManager.Core.Services.CQRS.Queries\EmpManager.Core.Services.CQRS.Queries.csproj" />
+    <ProjectReference Include="..\EmpManager.Core.Services.CQRS.Responses\EmpManager.Core.Services.CQRS.Responses.csproj" />
+  </ItemGroup>
+
+</Project>
