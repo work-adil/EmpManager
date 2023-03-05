@@ -20,9 +20,9 @@ namespace EmpManager.Core.Services.CQRS.Responses.Employees
         public virtual DepartmentResponse Department { get; set; } = null!;
 
         /// <summary>
-        /// Phone number.
+        /// Email.
         /// </summary>
-        public required string Phone { get; set; }
+        public required string Email { get; set; }
 
     }
 }

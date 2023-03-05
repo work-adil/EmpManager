@@ -33,7 +33,7 @@ namespace EmpManager.Core.Services.Validators.Employees.Tests
         public void UpdateEmployeeValidatorTests_Should_Return_True_If_NameIsNoEmpty()
         {
             // Arrange.
-            var newEmpCommand = new UpdateEmployeeCommand { DepartmentId = _departmentList.First().Id, Name = "Some Name", Phone = "1234567" };
+            var newEmpCommand = new UpdateEmployeeCommand { DepartmentId = _departmentList.First().Id, Name = "Some Name", Email = "a@b.com" };
 
             // Act.
             var validation = _UpdateEmployeeValidator.Validate(newEmpCommand);
@@ -46,7 +46,7 @@ namespace EmpManager.Core.Services.Validators.Employees.Tests
         public void UpdateEmployeeValidatorTests_Should_Return_False_If_NameIsEmpty()
         {
             // Arrange.
-            var newEmpCommand = new UpdateEmployeeCommand { DepartmentId = _departmentList.First().Id, Name = null!, Phone = "1234567" };
+            var newEmpCommand = new UpdateEmployeeCommand { DepartmentId = _departmentList.First().Id, Name = null!, Email = "a@b.com" };
 
             // Act.
             var validation = _UpdateEmployeeValidator.Validate(newEmpCommand);
@@ -59,7 +59,7 @@ namespace EmpManager.Core.Services.Validators.Employees.Tests
         public void UpdateEmployeeValidatorTests_Should_Return_True_If_DepartmentIsFound()
         {
             // Arrange.
-            var newEmpCommand = new UpdateEmployeeCommand { DepartmentId = _departmentList.First().Id, Name = "Some Name", Phone = "1234567" };
+            var newEmpCommand = new UpdateEmployeeCommand { DepartmentId = _departmentList.First().Id, Name = "Some Name", Email = "a@b.com" };
 
             // Act.
             var validation = _UpdateEmployeeValidator.Validate(newEmpCommand);
@@ -72,7 +72,7 @@ namespace EmpManager.Core.Services.Validators.Employees.Tests
         public void UpdateEmployeeValidatorTests_Should_Return_False_If_DepartmentIsNotFound()
         {
             // Arrange.
-            var newEmpCommand = new UpdateEmployeeCommand { DepartmentId = "Unknown", Name = "Some Name", Phone = "1234567" };
+            var newEmpCommand = new UpdateEmployeeCommand { DepartmentId = "Unknown", Name = "Some Name", Email = "a@b.com" };
 
             // Act.
             var validation = _UpdateEmployeeValidator.Validate(newEmpCommand);

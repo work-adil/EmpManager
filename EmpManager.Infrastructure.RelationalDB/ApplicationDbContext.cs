@@ -17,7 +17,7 @@ namespace EmpManager.Infrastructure.RelationalDb
         {
             var itDepartment = new Department { Name = "IT", Id = "IT-Department-ID" };
             modelBuilder.Entity<Department>().HasData(new[] { itDepartment, new Department { Name = "Operation", Id = "OP-Department-ID" } });
-            modelBuilder.Entity<Employee>().HasData(new[] { new Employee { DepartmentId = itDepartment.Id, Name = "Adil", Phone = "007" } });
+            modelBuilder.Entity<Employee>().HasData(new[] { new Employee { DepartmentId = itDepartment.Id, Name = "Adil", Email = "007" } });
 
             base.OnModelCreating(modelBuilder);
         }

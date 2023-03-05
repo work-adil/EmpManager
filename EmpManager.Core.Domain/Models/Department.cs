@@ -6,5 +6,6 @@
         /// Name of the department.
         /// </summary>
         public required string Name { get; set; }
+
     }
 }

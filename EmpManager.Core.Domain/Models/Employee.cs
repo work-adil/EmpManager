@@ -18,9 +18,9 @@
         public virtual Department Department { get; set; } = null!;
 
         /// <summary>
-        /// Phone number.
+        /// Email.
         /// </summary>
-        public required string Phone { get; set; }
+        public required string Email { get; set; }
 
     }
 }

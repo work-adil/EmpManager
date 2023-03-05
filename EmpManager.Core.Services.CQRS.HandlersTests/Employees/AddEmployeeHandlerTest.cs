@@ -32,16 +32,16 @@ namespace EmpManager.Core.Services.CQRS.HandlersTests.Employees
             });
 
             mapperMock.Setup(x => x.Map<EmployeeResponse>(It.IsAny<Employee>())).Returns((Employee x)
-                 => new EmployeeResponse { Id = x.Id, Name = x.Name, Phone = x.Phone, DepartmentId = x.DepartmentId});
+                 => new EmployeeResponse { Id = x.Id, Name = x.Name, Email = x.Email, DepartmentId = x.DepartmentId});
 
             mapperMock.Setup(x => x.Map<Employee>(It.IsAny<EmployeeResponse>())).Returns((EmployeeResponse x)
-                => new Employee { Id = x.Id, Name = x.Name, Phone = x.Phone, DepartmentId = x.DepartmentId });
+                => new Employee { Id = x.Id, Name = x.Name, Email = x.Email, DepartmentId = x.DepartmentId });
 
             mapperMock.Setup(x => x.Map<AddEmployeeCommand>(It.IsAny<Employee>())).Returns((Employee x)
-                => new AddEmployeeCommand { Name = x.Name, Phone = x.Phone, DepartmentId = x.DepartmentId });
+                => new AddEmployeeCommand { Name = x.Name, Email = x.Email, DepartmentId = x.DepartmentId });
 
             mapperMock.Setup(x => x.Map<Employee>(It.IsAny<AddEmployeeCommand>())).Returns((AddEmployeeCommand x)
-                => new Employee { Name = x.Name, Phone = x.Phone, DepartmentId = x.DepartmentId });
+                => new Employee { Name = x.Name, Email = x.Email, DepartmentId = x.DepartmentId });
 
             _addEmployeeHandler = new AddEmployeeHandler(repoMock.Object, mapperMock.Object, loggerMock.Object);
         }
@@ -50,7 +50,7 @@ namespace EmpManager.Core.Services.CQRS.HandlersTests.Employees
         public async Task AddEmployeeHandler_Should_Handle_AddEmployeeCommand()
         {
             // Arrange.
-            var command = new AddEmployeeCommand { Name = "New Employee", Phone = "007", DepartmentId = "Dep1"};
+            var command = new AddEmployeeCommand { Name = "New Employee", Email = "a@b.com", DepartmentId = "Dep1"};
 
 
             // Act.
@@ -59,7 +59,7 @@ namespace EmpManager.Core.Services.CQRS.HandlersTests.Employees
             // Assert.
             var lastEmployee = employees.Last();
             result.Name.Should().Be(lastEmployee.Name);
-            result.Phone.Should().Be(lastEmployee.Phone);
+            result.Email.Should().Be(lastEmployee.Email);
             result.Id.Should().Be(lastEmployee.Id);
             result.DepartmentId.Should().Be(lastEmployee.DepartmentId);
         }

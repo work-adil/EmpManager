@@ -36,7 +36,7 @@ namespace EmpManager.Core.Services.WebAPITests.Controllers
             {
                 var employeeToUpdate = employees.First(x => x.Id == u.Id);
                 employeeToUpdate.Name = u.Name;
-                employeeToUpdate.Phone = u.Phone;
+                employeeToUpdate.Email = u.Email;
                 employeeToUpdate.DepartmentId = u.DepartmentId;
                 return new GenericBaseResult<EmployeeResponse>(employeeToUpdate);
                 });
@@ -52,7 +52,7 @@ namespace EmpManager.Core.Services.WebAPITests.Controllers
                 {
                     Id = Guid.NewGuid().ToString(),
                     Name = a.Name,
-                    Phone = a.Phone,
+                    Email = a.Email,
                     DepartmentId = a.DepartmentId
                 };
                 employees.Add(employeeToAdd);
@@ -67,9 +67,9 @@ namespace EmpManager.Core.Services.WebAPITests.Controllers
 
         private void SetupEmployees()
         {
-            employees.Add(new EmployeeResponse { Id = "Emp1", Name = "Employee 1", DepartmentId = Dep1 , Phone = "001"});
-            employees.Add(new EmployeeResponse { Id = "Emp2", Name = "Employee 2", DepartmentId = Dep1, Phone = "002" });
-            employees.Add(new EmployeeResponse { Id = "Emp3", Name = "Employee 3", DepartmentId = Dep1, Phone = "003" });
+            employees.Add(new EmployeeResponse { Id = "Emp1", Name = "Employee 1", DepartmentId = Dep1 , Email = "a@b.com"});
+            employees.Add(new EmployeeResponse { Id = "Emp2", Name = "Employee 2", DepartmentId = Dep1, Email = "a@b.com" });
+            employees.Add(new EmployeeResponse { Id = "Emp3", Name = "Employee 3", DepartmentId = Dep1, Email = "a@b.com" });
 
         }
 
@@ -130,7 +130,7 @@ namespace EmpManager.Core.Services.WebAPITests.Controllers
             {
                 Id = EmployeeId,
                 Name = "Updated Name",
-                Phone = "007",
+                Email = "a@b.com",
                 DepartmentId = Dep1
             };
 
@@ -141,7 +141,7 @@ namespace EmpManager.Core.Services.WebAPITests.Controllers
             var expectedEmployee = employees.FirstOrDefault(x => x.Id == EmployeeId);
             employee.Should().Be(expectedEmployee);
             expectedEmployee!.Name.Should().Be(employeeToUpdate.Name);
-            expectedEmployee.Phone.Should().Be(employeeToUpdate.Phone);
+            expectedEmployee.Email.Should().Be(employeeToUpdate.Email);
         }
 
         [TestMethod()]
@@ -152,7 +152,7 @@ namespace EmpManager.Core.Services.WebAPITests.Controllers
             {
                 DepartmentId = Dep1,
                 Name = "New Employee",
-                Phone= "444"
+                Email= "a@b.com"
             };
 
             // Act.

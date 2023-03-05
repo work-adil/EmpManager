@@ -49,8 +49,8 @@ namespace EmpManager.Core.Services.CQRS.HandlersTests.Employees
 
         private void SetupData()
         {
-            employees.Add(new Employee { Id = "Emp1", Name = "Employee1", DepartmentId = "Dep1", Phone = "007" });
-            employees.Add(new Employee { Id = "Emp2", Name = "Employee2", DepartmentId = "Dep1", Phone = "009" });
+            employees.Add(new Employee { Id = "Emp1", Name = "Employee1", DepartmentId = "Dep1", Email = "007" });
+            employees.Add(new Employee { Id = "Emp2", Name = "Employee2", DepartmentId = "Dep1", Email = "009" });
         }
     }
 }

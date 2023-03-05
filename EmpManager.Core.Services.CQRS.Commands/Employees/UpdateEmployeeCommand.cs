@@ -17,8 +17,8 @@ namespace EmpManager.Core.Services.CQRS.Commands.Employees
         public required string DepartmentId { get; set; }
 
         /// <summary>
-        /// Phone number.
+        /// Email.
         /// </summary>
-        public required string Phone { get; set; }
+        public required string Email { get; set; }
     }
 }

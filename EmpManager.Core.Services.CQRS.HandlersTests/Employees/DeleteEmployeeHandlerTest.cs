@@ -34,10 +34,10 @@ namespace EmpManager.Core.Services.CQRS.HandlersTests.Employees
             });
 
             mapperMock.Setup(x => x.Map<EmployeeResponse>(It.IsAny<Employee>())).Returns((Employee x)
-                 => new EmployeeResponse { Id = x.Id, Name = x.Name, Phone = x.Phone, DepartmentId = x.DepartmentId});
+                 => new EmployeeResponse { Id = x.Id, Name = x.Name, Email = x.Email, DepartmentId = x.DepartmentId});
 
             mapperMock.Setup(x => x.Map<Employee>(It.IsAny<EmployeeResponse>())).Returns((EmployeeResponse x)
-                => new Employee { Id = x.Id, Name = x.Name, Phone = x.Phone, DepartmentId = x.DepartmentId });           
+                => new Employee { Id = x.Id, Name = x.Name, Email = x.Email, DepartmentId = x.DepartmentId });           
 
             _updateEmployeeHandler = new DeleteEmployeeHandler(repoMock.Object, loggerMock.Object);
         }
@@ -57,7 +57,7 @@ namespace EmpManager.Core.Services.CQRS.HandlersTests.Employees
 
         private void SetupData()
         {
-            employees.Add(new Employee { Id = OriginalEmployee, Name = "Employee1", DepartmentId = "Dep1", Phone = "007" });
+            employees.Add(new Employee { Id = OriginalEmployee, Name = "Employee1", DepartmentId = "Dep1", Email = "a@b.com" });
         }
     }
 }
